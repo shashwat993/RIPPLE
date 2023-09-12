@@ -1,0 +1,85 @@
+{% extends 'core/base.html' %}
+{% block title %}home{% endblock title %}
+
+{% block login %}
+{% if isauth %}
+<div class="col-sm-2">
+    <a href="{% url 'logout' %}">
+        <button type="button" class="btn btn-outline-dark m-3">LOG OUT</button>
+    </a>
+</div>
+{% else %}
+<div class="col-sm-2">
+    <a href="{% url 'signup' %}">
+        <button type="button" class="btn btn-outline-dark m-3">SIGN UP</button>
+    </a>
+    <a href="{% url 'login' %}">
+        <button type="button" class="btn btn-outline-dark">LOG IN</button>
+    </a>
+</div>
+{% endif %}
+{% endblock login %}
+
+
+{% block dashboard %}
+{% if isauth %}
+<a class="nav-item nav-link active" href=" {% url 'addarticle' %}">WRITE <span class="sr-only">(current)</span></a>
+<a class="nav-item nav-link active" href=" {% url 'profile' %}">DASHBOARD <span class="sr-only"> (current)</span></a>
+
+{% else %}
+<a class="nav-item nav-link active" href=" {% url 'login' %}">WRITE <span class="sr-only">(current)</span></a>
+{% endif %}
+
+{% endblock dashboard %}
+
+{% block content %}
+<div class="container "></div>
+<div class="row mt-5 border-bottom border-dark">
+    <div class="col-sm-4 offset-sm-2  mt-5">
+   <h1 class="display-1  " style="font-family: 'Barriecito', cursive;">Keep Exploring.</h1>
+   
+   <h3 style="font-family: 'Rajdhani', sans-serif;" >Discover stories, thinking, and expertise </h3>
+   <h3 style="font-family: 'Rajdhani', sans-serif;"> from writers on any topic.</h3>
+    <br> <br> <br>
+    <button type="button" class="btn btn-dark btn-lg" style="border-radius:99em;">
+        <a href="#startReading" style="text-decoration: none; color: inherit;">Start Reading</a>
+    </button>
+    <br>
+    <br>
+    </div>
+    <div class="col-sm-5  mt-5">
+      
+
+    </div>
+</div>
+<div class="bg-light " id="startReading">
+    <div class="container  shadow-lg rounded-4 p-5">
+        <br>
+
+        {% for article in articles %}
+       
+        <div class="row">
+            <div class="col-sm-8  ">
+                <a href=" {% url 'showarticle' article.id %} " style="text-decoration: none; color:inherit; cursor: pointer;" target="_blank">
+                    <h3 style="font-family:sohne;" > <b>{{ article.title|slice:":100" }}{% if article.title|length > 100 %}...{% endif %}</b></h3>
+                    <p class="text-secondary" style="font-family:Cambria;">{{ article.desc|slice:":500" }}{% if article.desc|length > 500 %}...{% endif %}</p>
+                </a>
+                
+            </div>
+ 
+        </div>
+        <br>
+    
+    {% endfor %}
+    </div>
+
+</div>
+
+
+
+
+
+
+{% endblock content %}
+
+

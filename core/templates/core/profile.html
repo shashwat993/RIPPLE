@@ -1,0 +1,118 @@
+{% extends 'core/base.html' %}
+
+{% block title %} Profile{% endblock title %}
+{% block login %}
+
+<div class="col-sm-2">
+    <a href=" {% url 'logout' %} ">
+        <button type="button" class="btn btn-outline-dark m-3">LOG OUT</button>
+    </a>
+</div>
+
+{% endblock login %}
+
+{% block dashboard %}
+<a class="nav-item nav-link active" href="{% url 'addarticle' %} ">WRITE <span class="sr-only"> (current)</span></a>
+<a class="nav-item nav-link active" href=" {% url 'profile' %} ">DASHBOARD <span class="sr-only"> (current)</span></a>
+
+{% endblock dashboard %}
+
+
+{% block content %}
+
+<div class="row mt-5">
+
+ 
+
+  <div class="col-sm-3 offset-sm-1 ">
+    <div class="text-center ">
+
+        <i class="fa-solid fa-user bg-white rounded-circle p-4" style="font-size: 6rem;" ></i>
+        <br> <br>
+        <h1>{{full_name}}</h1>
+        <h3 class="text-end p-2 fw-lighter">@{{username}}</h3>
+        <hr>
+        
+    </div>
+   <div class="row">
+    <div class="col-sm-6">
+        <i class="fa-solid fa-location-dot fa-xl d-inline p-1"></i>
+        <h5 class="d-inline fw-light">From</h5>
+    </div>
+    <div class="col-sm-6">
+        <h5 class="fw-light text-end p-2">India</h5>
+    </div>
+    <div class="col-sm-6 ">
+        <i class="fa-solid fa-user fa-xl d-inline p-1"></i>
+        <h5 class="d-inline fw-light">Memeber Since</h5>
+    </div>
+    <div class="col-sm-6">
+        <h5 class="fw-light text-end p-2">May 2022</h5>
+    </div>
+   </div>
+   <hr>
+   <div class="row">
+    <div class="col-sm-6 ">
+        <i class="fa-solid fa-sack-dollar fa-xl d-inline p-1"></i>
+        <h5 class="d-inline fw-light">Net Earning</h5>
+    </div>
+    <div class="col-sm-6">
+        <h5 class="fw-light text-end p-2">INR 1273</h5>
+    </div>
+   </div>
+   
+   <hr>
+    <h5>Description</h5>
+    <p class="fw-light">As an Engineering student at IIT Mandi with five years of experience as an assignment writer, I can help you excel in your college studies. I offer professional services for coursework projects, lab reports, and assignments with 100% accuracy. My experience includes successfully completing over 500 projects with all my clients got an 'A' grade.</p>
+    <hr>
+    </div>
+    <div class="col-sm-6 offset-sm-1 ">
+        <div class="text-center">
+            <a href="{% url 'addarticle' %}" target="_blank" >
+                <button type="button" class="btn btn-dark btn-lg btn-block">ADD ARTICLE </button>
+            </a>
+            <br>
+            <br>
+            <h1>My Articles </h1>
+            <hr>
+            <div class="rounded-4 text-start  ">
+
+                {% if articles %}
+                {% for article in articles %}
+                <div class="row">
+                    <div class="col-sm-8 ">
+                        <a href=" {% url 'showarticle' article.id %} " style="text-decoration: none; color:inherit; cursor: pointer;" target="_blank">
+                            <h3> <b>{{ article.title|slice:":30" }}{% if article.title|length > 30 %}...{% endif %}</b></h3>
+                            <p class="text-secondary">{{ article.desc|slice:":150" }}{% if article.desc|length > 150 %}...{% endif %}</p>
+                        </a>
+                        
+                    </div>
+                    <div class="col-sm-4 text-end">
+                        <a href=" {% url 'updateblog' article.id %} " class="btn btn-dark btn-sm">Edit</a>
+                        <form action=" {% url 'deletearticle' article.id %} " method="POST" class="d-inline">
+                            {% csrf_token %} 
+                             <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+                        </form> 
+                    </div>
+                </div>
+                <br>
+            
+            {% endfor %}
+                
+                
+                {% else %}
+                <h2 class="text-center">Please Write Your First Article</h2>
+                
+                {% endif %}
+
+            </div>
+            
+        </div>
+     
+    </div> 
+
+
+
+</div>
+
+{% endblock content %}

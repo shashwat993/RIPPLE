@@ -1,0 +1,62 @@
+{% extends 'core/base.html' %}
+
+{% block title %} Add Article{% endblock title %}
+
+{% block dashboard %}
+{% if isauth %}
+<a class="nav-item nav-link active" href=" {% url 'addarticle' %}">WRITE <span class="sr-only">(current)</span></a>
+<a class="nav-item nav-link active" href=" {% url 'profile' %}">DASHBOARD <span class="sr-only"> (current)</span></a>
+
+{% else %}
+<a class="nav-item nav-link active" href=" {% url 'login' %}">WRITE <span class="sr-only">(current)</span></a>
+{% endif %}
+
+{% endblock dashboard %}
+{% block login %}
+
+<div class="col-sm-2">
+    <a href=" {% url 'logout' %} ">
+        <button type="button" class="btn btn-outline-dark m-3">LOG OUT</button>
+    </a>
+</div>
+
+{% endblock login %}
+
+{% block content %}
+<div class="row mt-5 ">
+
+    <div class="col-sm-8 offset-sm-2  ">
+       
+        <div class="login-style rounded-4 shadow-lg bg-light">
+            <h3 class="text-center">WRITE YOUR ARTICLE</h3>
+            <form action="" method="POST" novalidate>
+                {% csrf_token %}
+                {% if form.non_field_errors %}
+                    {% for error in form.non_field_errors %}
+                        <p class="err">{{error}}</p>
+                    {% endfor %}
+                {% endif %}
+    
+                {% for fm in form %}
+                    <div class="form-label">{{fm.label_tag}}</div>
+                    <div class="form-field " >{{fm}}</div>
+                    {{fm.errors|striptags }} <br> 
+                {% endfor %}
+    
+                <input type="submit" value="SUBMIT" >
+                <a href=" {% url 'profile' %} "style="margin-left:12px">
+                    <input type="button" value="BACK">
+                </a>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+<br>
+<br>
+<br>
+
+
+{% endblock content %}

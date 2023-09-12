@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani&family=Roboto:wght@700&display=swap');
+
+.centar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    margin-top: -16vh;
+}
+.centar-containe-signup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5vh;
+    padding-bottom: 10vh;
+    
+}
+
+.login-style{
+    padding-left: 5vh;
+    padding-right: 5vh;
+    padding-top: 5vh;
+    padding-bottom: 6vh;
+   
+}
+.form-label{
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 1px;
+}
+/* Styling for form fields */
+.login-style form input[type="text"],
+.login-style form input[type="password"],
+.login-style form input[type="email"],
+.login-style form input[type="number"],
+.login-style form textarea[name="title"],
+.login-style form textarea[name="message"],
+.login-style form textarea[name="desc"],
+.login-style form textarea[name="articleContent"]
+ {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.login-style form input[type="text"]:focus,
+.login-style form input[type="password"]:focus,
+.login-style form input[type="email"]:focus,
+.login-style form input[type="number"]:focus,
+.login-style form textarea[name="title"]:focus,
+.login-style form textarea[name="message"]:focus,
+.login-style form textarea[name="desc"]:focus,
+.login-style form textarea[name="articleContent"]:focus
+
+{
+    border-color: #d6d6d6;
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(0, 2, 3, 0.5);
+}
+
+.login-style form input[type="submit"],
+.login-style form input[type="button"],
+.contact-button 
+
+{
+    background-color: #004080; /* Darker background color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold; /* Bold text */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-style form input[type="submit"]:hover,
+.login-style form input[type="button"]:hover,
+.contact-button 
+ {
+    background-color: #003366; /* Darker hover background color */
+}
+
+
+.login-style form .form-label {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.login-style form .err {
+    color: red;
+    margin-top: 5px;
+}
+.login-style form input[type="text"], 
+.login-style form input[type="email"], 
+.login-style form textarea[name="title"],
+.login-style form textarea[name="desc"],
+.login-style form textarea[name="articleContent"],
+.login-style form textarea[name="message"],
+.atitle
+ {
+    font-size: 18px; 
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    
+}
+
+.login-style form textarea[name="title"],
+.login-style form textarea[name="desc"],
+.login-style form textarea[name="articleContent"]{
+    width: 100%;
+}
+
+
+  

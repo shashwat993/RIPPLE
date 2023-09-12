@@ -1,0 +1,61 @@
+{% extends 'core/base.html' %}
+{% block dashboard %}
+{% if isauth %}
+<a class="nav-item nav-link active" href=" {% url 'addarticle' %}">WRITE <span class="sr-only">(current)</span></a>
+<a class="nav-item nav-link active" href=" {% url 'profile' %}">DASHBOARD <span class="sr-only"> (current)</span></a>
+
+
+{% else %}
+<a class="nav-item nav-link active" href=" {% url 'login' %}">WRITE <span class="sr-only">(current)</span></a>
+{% endif %}
+
+{% endblock dashboard %}
+
+
+{% block login %}
+{% if isauth %}
+<div class="col-sm-2">
+    <a href="{% url 'logout' %}">
+        <button type="button" class="btn btn-outline-dark m-3">LOG OUT</button>
+    </a>
+</div>
+{% else %}
+<div class="col-sm-2">
+    <a href="{% url 'signup' %}">
+        <button type="button" class="btn btn-outline-dark m-3">SIGN UP</button>
+    </a>
+    <a href="{% url 'login' %}">
+        <button type="button" class="btn btn-outline-dark">LOG IN</button>
+    </a>
+</div>
+{% endif %}
+{% endblock login %}
+
+{% block content %}
+
+<div class="container bg-light shadow-lg rounded-4 mt-5 p-5 " style=" text-align: justify;">
+    {% comment %} <h1 style="font-size:75px"> <b>RIPPLE: Unveiling Life's Echoes and Insights</b> </h1> {% endcomment %}
+    <br>
+    <h1 style="font-family: 'Satisfy', cursive; font-size:60px;" > <b> Welcome to Ripple ,</b> </h1>
+    <p style="text-indent:430px; font-size:20px; font-family:Cambria ">
+        A sanctuary for authentic human narratives and profound ideas. Here, every individual has the opportunity to share their thought-provoking perspectives, valuable insights, and life's wisdom with the world, unburdened by the need to amass a mailing list or followers beforehand. Amidst the cacophony of the internet, RIPPLE stands as a serene oasis, resonating with wisdom and insight. With its elegant simplicity and collaborative spirit, it effortlessly guides your voice to the right audience.
+    </p>
+    <p style="font-size:20px; font-family:Cambria ">We firmly believe that the words we read and write hold incredible significance. In a world where superficial stories often take center stage, we are crafting a platform that honors depth, complexity, and meaningful time spent. RIPPLE fosters an environment that nurtures thoughtful conversations over fleeting opinions and prioritizes substance over superficiality.</p>
+
+    <p style="font-size:20px; font-family:Cambria ">
+        At its core, our mission is to enrich our collective comprehension of the world through the transformative power of the written word. Each article, each piece of prose, creates a ripple effect of understanding that radiates outward, touching minds and hearts alike.
+    </p>
+    <p style="font-size:20px; font-family:Cambria ">
+        Join a community of over a million souls who converge at RIPPLE every month, connecting to share their reservoirs of wisdom. Among them, you'll find accomplished writers, but equally as many who are not. They are visionaries, scientists, dreamers, artists, and those who are brimming with stories yearning to be told. Whether they're chronicling their endeavors, exploring their midnight musings, recounting life-altering experiences, or simply sharing lessons they've gleaned, their narratives find a welcoming home here.
+    </p>
+    <p style="font-size:20px; font-family:Cambria ">
+        <b>RIPPLE is more than a website—</b> it's a testament to the potential of words to forge connections, divide or empower us, and illuminate the path ahead. In a world that often favors fleeting sensationalism, we are constructing a haven that rewards profundity, authenticity, and a well-spent moment. It's an endeavor to transcend the ordinary and celebrate the extraordinary in every narrative.
+    </p>
+    <p style="font-size:20px; font-family:Cambria ">
+        <b>Welcome to RIPPLE—</b> where your voice sets forth waves of inspiration, insight, and contemplation. Your stories matter, your ideas matter, and together, we endeavor to amplify their impact on the world.
+    </p>
+</div>
+
+{% endblock content %}
+
+

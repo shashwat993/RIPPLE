@@ -1,0 +1,61 @@
+{% extends 'core/base.html' %}
+{% block title %}Article{% endblock title %}
+{% block login %}
+{% if isauth %}
+<div class="col-sm-2">
+    <a href="{% url 'logout' %}">
+        <button type="button" class="btn btn-outline-dark m-3">LOG OUT</button>
+    </a>
+</div>
+{% else %}
+<div class="col-sm-2">
+    <a href="{% url 'signup' %}">
+        <button type="button" class="btn btn-outline-dark m-3">SIGN UP</button>
+    </a>
+    <a href="{% url 'login' %}">
+        <button type="button" class="btn btn-outline-dark">LOG IN</button>
+    </a>
+</div>
+{% endif %}
+{% endblock login %}
+
+{% block dashboard %}
+{% if isauth %}
+<a class="nav-item nav-link active" href=" {% url 'addarticle' %}">WRITE <span class="sr-only">(current)</span></a>
+<a class="nav-item nav-link active" href=" {% url 'profile' %}">DASHBOARD <span class="sr-only"> (current)</span></a>
+
+{% else %}
+<a class="nav-item nav-link active" href=" {% url 'login' %}">WRITE <span class="sr-only">(current)</span></a>
+{% endif %}
+
+{% endblock dashboard %}
+
+{% block content %}
+<div class="container border p-5 bg-light rounded-4 shadow-lg mt-5 " style="font-family:sohne; margin-bottom:100px;" >
+   <h1 class="text-center"> <b>{{articles.title}}</b> </h1>
+   <br>
+   <hr>
+   <div class="row">
+    <div class="col-sm-8">
+        
+        <h3>{{articles.desc}}</h3>
+    </div>
+    <div class="col-sm-3 text-end">
+        <button id="playPauseBtn" data-article-id="{{ articles.id }}">Play</button>
+    
+        
+        
+    
+          
+    </div>
+   </div>
+   <br> 
+   <p style="font-family:Cambria;">{{articles.articleContent}}</p>
+     <br> <br>
+   <div class="text-end">
+       <h5> - Article by {{articles.authorusername}}</h5>
+   </div>
+</div>
+
+
+{% endblock content %}

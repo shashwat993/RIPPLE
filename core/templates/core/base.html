@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   
+    <link rel="stylesheet" href="{% static 'core/css/font.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/core.css' %}">
+    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barriecito&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+   
+
+
+    <title> {% block title %} {% endblock title %} </title>
+</head>
+<body class="bg-warning">
+    <div class="w-100 h-100" >
+        <div class="row border-bottom border-dark">
+            <div class="col-sm-3">
+                <div class="row text-center navbar">
+                    <a class="navbar-brand" href=" {% url 'home' %} " class="mr-5">
+                        <i class="fa-sharp fa-r fa-beat-fade fa-xl p-1"></i>
+                        <i class="fa-sharp fa-i fa-beat-fade fa-xl p-1"></i>
+                        <i class="fa-sharp fa-p fa-beat-fade fa-xl p-1"></i>
+                        <i class="fa-sharp fa-p fa-beat-fade fa-xl p-1"></i>
+                        <i class="fa-sharp fa-l fa-beat-fade fa-xl p-1"></i>
+                        <i class="fa-sharp fa-e fa-beat-fade fa-xl p-1"></i>
+        
+        
+                    </a>
+                  </div>
+
+            </div>
+            <div class="col-sm-7">
+                <nav class="navbar navbar-expand-lg navbar-light">
+
+    
+                    <div class="collapse navbar-collapse ml-1" id="navbarNavAltMarkup">
+                      <div class="navbar-nav ">
+                    <a class="nav-item nav-link active" href=" {% url 'home' %}">HOME <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link active" href=" {% url 'about' %}">ABOUT<span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link active" href=" {% url 'contact' %} ">CONTACT <span class="sr-only">(current)</span></a>
+                  
+                    {% block dashboard %}
+                    
+                    {% endblock dashboard %} 
+                    
+
+
+                      </div>
+
+        
+                    </div>
+                </nav>
+            </div>
+             {% block login %}{% endblock login %}
+        </div>
+        {% block content %}{% endblock content %}
+    </div>
+    <div class="mt-5">
+        <footer class="text-center text-black">
+            <!-- Grid container -->
+            <div class="container pt-4">
+              <!-- Section: Social media -->
+              <section class="mb-4">
+                <!-- Facebook -->
+                <a
+                  class="btn btn-link btn-floating btn-lg text-white m-1"
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  role="button"
+                  data-mdb-ripple-color="dark"
+                  >
+                  <i class="fa-brands fa-facebook" style="color: #0a0a0a;"></i>
+                
+                </a>
+          
+                <!-- Twitter -->
+                <a
+                  class="btn btn-link btn-floating btn-lg text-white m-1"
+                  href="https://twitter.com/Shashwa42444682"
+                  role="button"
+                  target="_blank"
+                  data-mdb-ripple-color="dark"
+                  ><i class="fab fa-twitter" style="color: #0a0a0a;"></i
+                ></a>
+          
+                <!-- Google -->
+                <a
+                  class="btn btn-link btn-floating btn-lg text-white m-1"
+                  href="https://www.google.com/"
+                  target="_blank"
+                  role="button"
+                  data-mdb-ripple-color="dark"
+                  ><i class="fab fa-google" style="color: #0a0a0a;"></i
+                ></a>
+          
+                <!-- Instagram -->
+                <a
+                  class="btn btn-link btn-floating btn-lg text-white m-1"
+                  href="https://www.instagram.com/x_jisas"
+                  role="button"
+                  target="_blank"
+                  data-mdb-ripple-color="dark"
+                  ><i class="fab fa-instagram" style="color: #0a0a0a;"></i
+                ></a>
+          
+                <!-- Linkedin -->
+                <a
+                  class="btn btn-link btn-floating btn-lg text-white m-1"
+                  href="https://www.linkedin.com/in/shashwat99/"
+                  target="_blank"
+                  role="button"
+                  data-mdb-ripple-color="dark"
+                  ><i class="fab fa-linkedin" style="color: #0a0a0a;"></i
+                ></a>
+                <!-- Github -->
+                <a
+                  class="btn btn-link btn-floating btn-lg text-white m-1"
+                  href="https://github.com/shashwat993"
+                  role="button"
+                  target="_blank"
+                  data-mdb-ripple-color="dark"
+                  ><i class="fab fa-github" style="color: #0a0a0a;"></i
+                ></a>
+              </section>
+              <!-- Section: Social media -->
+            </div>
+            <!-- Grid container -->
+          
+            <!-- Copyright -->
+            <div class="text-center text-black p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+              © 2020 Copyright:
+              <a class="text-black" href="https://github.com/shashwat993">@x_jisas</a>
+            </div>
+            <!-- Copyright -->
+          </footer>
+    </div>
+    
+  <script>
+      var baseAudioURL = "{% url 'article_audio' article_id=0 %}";
+  </script>
+  
+
+<script src="{% static 'core/js/jquery.js' %}"></script>
+<script src="{% static 'core/js/popper.js' %}"></script>
+<script src="{% static 'core/js/font.js' %}"></script>
+<script src="{% static 'core/js/bootstrap.js' %}"></script> 
+<script src="{% static 'core/js/audio.js' %}"></script> 
+
+     
+</body>
+</html>

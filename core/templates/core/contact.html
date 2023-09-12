@@ -1,0 +1,145 @@
+{% extends 'core/base.html' %}
+{% block title %}Contact{% endblock title %}
+{% block dashboard %}
+{% if isauth %}
+<a class="nav-item nav-link active" href=" {% url 'addarticle' %}">WRITE <span class="sr-only">(current)</span></a>
+<a class="nav-item nav-link active" href=" {% url 'profile' %}">DASHBOARD <span class="sr-only"> (current)</span></a>
+
+{% else %}
+<a class="nav-item nav-link active" href=" {% url 'login' %}">WRITE <span class="sr-only">(current)</span></a>
+{% endif %}
+{% endblock dashboard %}
+
+{% block login %}
+{% if isauth %}
+<div class="col-sm-2">
+    <a href="{% url 'logout' %}">
+        <button type="button" class="btn btn-outline-dark m-3">LOG OUT</button>
+    </a>
+</div>
+{% else %}
+<div class="col-sm-2">
+    <a href="{% url 'signup' %}">
+        <button type="button" class="btn btn-outline-dark m-3">SIGN UP</button>
+    </a>
+    <a href="{% url 'login' %}">
+        <button type="button" class="btn btn-outline-dark">LOG IN</button>
+    </a>
+</div>
+{% endif %}
+{% endblock login %}
+
+{% block content %}
+<div class="container bg-light rounded-4 shadow-lg mt-5">
+    <!--Section: Contact v.2-->
+    <br>
+    <br>
+    <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
+<section >
+
+  
+    <div class="row">
+
+        <!--Grid column-->
+        <div class="col-md-9  login-style">
+            <form id="contact-form" name="" action="" method="POST" class="p-4">
+                      {% csrf_token %}
+                <!--Grid row-->
+                <div class="row">
+
+                    <!--Grid column-->
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            {{form.name}}
+                        </div>
+                    </div>
+                    <!--Grid column-->
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <!--Grid column-->
+                    <div class="col-md-6 ">
+                        <div class="md-form mb-0">
+                            {{form.email}}
+                            
+                        </div>
+                    </div>
+                    <!--Grid column-->
+
+                </div>
+                <!--Grid row-->
+            
+                <!--Grid row-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="md-form mb-0">
+                            {{form.subject}}
+                            
+                        </div>
+                    </div>
+                </div>
+                <!--Grid row-->
+                     <br>
+                     <br>
+                     
+                  
+                <!--Grid row-->
+                <div class="row">
+
+                    <!--Grid column-->
+                    <div class="col-md-12">
+
+                        <div class="md-form">
+                            {{form.message}}
+                            
+                        </div>
+
+                    </div>
+                </div>
+                <!--Grid row-->
+                <br>
+                <input type="submit" value="SUBMIT" >
+                <a href=" {% url 'profile' %} " style="margin-left:12px">
+                    <input type="button" value="BACK">
+                </a>
+                <div class="status"></div>
+
+            </form>
+       
+           
+
+
+          
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-3 text-center" style="margin-top:7vh">
+            <ul class="list-unstyled mb-0">
+                <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                    <p>PATNA, BR 800001, INDIA</p>
+                </li>
+
+                <li><i class="fas fa-phone mt-4 fa-2x"></i>
+                    <p>+919939212017</p>
+                </li>
+
+                <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                    <p>comingsoon@gmail.com</p>
+                </li>
+            </ul>
+        </div>
+        <!--Grid column-->
+
+    </div>
+
+</section>
+<!--Section: Contact v.2-->
+</div>
+
+
+
+{% endblock content %}
+
+

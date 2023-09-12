@@ -1,0 +1,40 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block login %}
+<div class="col-sm-2">
+    <a href="{% url 'signup' %}">
+        <button type="button" class="btn btn-outline-dark m-3">SIGN UP</button>
+    </a>
+</div>
+{% endblock login %}
+{% block dashboard %}
+<a class="nav-item nav-link active" href=" {% url 'login' %}">WRITE <span class="sr-only">(current)</span></a>
+
+{% endblock dashboard %}
+
+{% block content %}
+<br> <br> <br>
+<div class="centar-container"> 
+    <div class="bg-light login-style rounded-4 shadow-lg">
+        <div class="text-center"><h2>Login</h2></div>
+        <br>
+        <br>
+        <form action="" method="POST" novalidate>
+            {% csrf_token %}
+            {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                    <p class="err">{{error}}</p>
+                {% endfor %}
+            {% endif %}
+
+            {% for fm in form %}
+                <div class="form-label">{{fm.label_tag}}</div>
+                <div class="form-field " >{{fm}}</div>
+                {{fm.errors|striptags }} <br> <br>
+            {% endfor %}
+
+            <input type="submit" value="SUBMIT" >
+        </form>
+    </div>
+</div>
+{% endblock content %}
