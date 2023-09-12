@@ -54,7 +54,7 @@ password: root
 # Demo 
 ### This project hosted Hosted:
 
-[Click here]([url](http://xjisas.pythonanywhere.com/))
+[Click here](http://xjisas.pythonanywhere.com/)
 
 # Contact us:
 
