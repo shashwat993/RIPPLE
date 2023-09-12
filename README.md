@@ -48,6 +48,7 @@ Go to Dirctory RIPPLE using `cd RIPPLE`
 `python manage.py createsuperuser`
 
 username: root
+
 password: root
 
 # Demo 
