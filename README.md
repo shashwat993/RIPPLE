@@ -54,12 +54,11 @@ password: root
 # Demo 
 ### This project hosted Hosted:
 
-[http://xjisas.pythonanywhere.com/](url)
+[Click here]([url](http://xjisas.pythonanywhere.com/))
 
 # Contact us:
 
-Instagram: [https://www.instagram.com/x_jisas/](url)
-
+[Click here ](https://www.instagram.com/x_jisas/)
 
 
 
