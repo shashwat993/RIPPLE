@@ -5,6 +5,8 @@ RIPPLE, A blog sharing website using Python, Django, Bootstrap, HTML & CSS
 
 ![image](https://github.com/shashwat993/RIPPLE/assets/108952343/ed4e3594-c5ba-4d4e-9903-43f108fb40a5)
 
+![image](https://github.com/shashwat993/RIPPLE/assets/108952343/622d13ee-35da-4024-923b-fe14e0d0ce83)
+
 ![image](https://github.com/shashwat993/RIPPLE/assets/108952343/01927874-8d48-4841-82fc-b7bb22165de0)
 
 ![image](https://github.com/shashwat993/RIPPLE/assets/108952343/bb5af8b9-d0b9-4745-828f-7677d43488dd)
